@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import os
 
 # Function to extract HOG features from an image
 def extract_hog_features(image):
@@ -17,27 +18,26 @@ def extract_hog_features(image):
     return features
 
 # Load and preprocess images
-# In this example, let's assume you have a list of image paths
-image_paths_manure = ["manure1.jpg", "manure2.jpg", ...]
-image_paths_no_manure = ["no_manure1.jpg", "no_manure2.jpg", ...]
+# Define paths to the folders containing manure and no manure images
+manure_folder = "manure_images"
+no_manure_folder = "no_manure_images"
+# Initialize lists to store image paths and labels
+image_paths_manure = []
+image_paths_no_manure = []
 X = []
 y = []
 
-# Load manure images
-for path in image_paths_manure:
-    image = cv2.imread(path)
-    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    features = extract_hog_features(image_gray)
-    X.append(features)
-    y.append(1)  # Label 1 for manure
+# Iterate over the images in the manure folder
+for filename in os.listdir(manure_folder):
+    if filename.endswith(".jpg") or filename.endswith(".png"):  # Filter only image files
+        image_paths_manure.append(os.path.join(manure_folder, filename))
+        y.append(1)  # Label 1 for manure
 
-# Load background images without manure
-for path in image_paths_no_manure:
-    image = cv2.imread(path)
-    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    features = extract_hog_features(image_gray)
-    X.append(features)
-    y.append(0)  # Label 0 for no manure
+# Iterate over the images in the no manure folder
+for filename in os.listdir(no_manure_folder):
+    if filename.endswith(".jpg") or filename.endswith(".png"):  # Filter only image files
+        image_paths_no_manure.append(os.path.join(no_manure_folder, filename))
+        y.append(0)  # Label 0 for no manure
 
 # Convert lists to numpy arrays
 X = np.array(X)
