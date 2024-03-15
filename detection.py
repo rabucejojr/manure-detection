@@ -19,8 +19,8 @@ def extract_hog_features(image):
 
 # Load and preprocess images
 # Define paths to the folders containing manure and no manure images
-manure_folder = "manure_images"
-no_manure_folder = "no_manure_images"
+manure_folder = "D:/manure-detection/manure_folder"
+no_manure_folder = "D:/manure-detection/no_manure_folder"
 # Initialize lists to store image paths and labels
 image_paths_manure = []
 image_paths_no_manure = []
