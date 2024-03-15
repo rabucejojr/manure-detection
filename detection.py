@@ -19,7 +19,7 @@ def extract_hog_features(image):
 
 # Load and preprocess images
 # Define paths to the folders containing manure and no manure images
-manure_folder = "D:/manure-detection/manure_folder"
+manure_folder = "D:\manure-detection\manure_folder"
 no_manure_folder = "D:/manure-detection/no_manure_folder"
 # Initialize lists to store image paths and labels
 image_paths_manure = []
@@ -45,6 +45,9 @@ y = np.array(y)
 
 # Split data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# print('with manure: ',image_paths_manure)
+# print('with no manure: ',image_paths_no_manure)
 
 # Train SVM classifier
 svm_classifier = SVC(kernel='linear')
