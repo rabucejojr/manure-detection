@@ -26,8 +26,11 @@ start_time = time.time()
 # Define paths to the folders containing manure and no manure images
 # manure_folder = "D:\manure-detection\manure_folder"
 # no_manure_folder = "D:/manure-detection/no_manure_folder"
-manure_folder = "C:\\Users\\roger\\OneDrive\\Desktop\\manure-detection\\manure_folder"
-no_manure_folder = "C:\\Users\\roger\\OneDrive\\Desktop\\manure-detection\\no_manure_folder"
+# manure_folder = "C:\\Users\\roger\\OneDrive\\Desktop\\manure-detection\\manure_folder"
+# no_manure_folder = "C:\\Users\\roger\\OneDrive\\Desktop\\manure-detection\\no_manure_folder"
+# Office PC file directory
+manure_folder = "D:\\manure-detection\\manure_folder"
+no_manure_folder = "D:\\manure-detection\\no_manure_folder"
 # Initialize lists to store image paths and labels
 image_paths_manure = []
 image_paths_no_manure = []
